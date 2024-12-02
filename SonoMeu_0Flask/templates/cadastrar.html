@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SONOMEU</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos mantidos como no original */
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #9db8d1;
+        }
+        header {
+            background-color: #9db8d1;
+            padding: 20px;
+            color: #fbe3e9;
+        }
+        .flex {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        .sonomeu {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        .sonomeu h1 {
+            margin: 0;
+        }
+        button {
+            background-color: #ffffff;
+            border: none;
+            padding: 15px 32px;
+            display: inline-block;
+            cursor: pointer;
+        }
+        button img {
+            width: 50px;
+            height: 50px;
+        }
+        .navbar {
+            background-color: #9db8d1;
+            padding: 15px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .navbar ul li {
+            margin-left: 20px;
+        }
+        .navbar ul li a {
+            color: #fbe3e9;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-weight: bold;
+        }
+        .navbar ul li a:hover {
+            background-color: #fbe3e9;
+            color: #9db8d1;
+            border-radius: 5px;
+        }
+        .logo {
+            width: 60px;
+            height: auto;
+        }
+        #hero-section {
+            background-color: #9db8d1;
+            color: #fbe3e9;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        #hero-section h1 {
+            margin: 0;
+            font-size: 53px;
+            margin-top: 60px;
+        }
+        #links {
+            background-color: #fbe3e9;
+            color: #9db8d1;
+            padding: 10px;
+            text-align: center;
+        }
+        #links a {
+            color: #9db8d1;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        #links a:hover {
+            text-decoration: underline;
+        }
+        .pijama-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .detalhes-pijama {
+            background-color: #fbe3e9;
+            width: 45%;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .detalhes-pijama img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+        .detalhes-pijama h2 {
+            font-family: 'Playfair Display', serif;
+            color: #9db8d1;
+            font-size: 24px;
+        }
+        .detalhes-pijama p {
+            font-size: 16px;
+        }
+        .detalhes-pijama a {
+            display: inline-block;
+            background-color: #9db8d1;
+            color: #fbe3e9;
+            padding: 10px 20px;
+            margin-top: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .detalhes-pijama a:hover {
+            background-color: #7d9ac1;
+        }
+        .footer {
+            background-color: #9db8d1;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        @media (max-width: 768px) {
+            .pijama-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            #links {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <img src="{{ url_for('static', filename='templates\FE13239C-3CBE-41EB-8024-CA7871E3F2F6_L0_001-01_08_2024, 14_40_42.png') }}" alt="Logo da Loja" class="logo">
+        <ul>
+            <li><a href="/cadastrar">Cadastrar</a></li>
+            <li><a href="/entrar">Entrar</a></li>
+            <li><a href="/deletar">Deletar</a></li>
+        </ul>
+    </div>
+
+    <div id="hero-section">
+        <h1>CADASTRAR</h1>
+    </div>
+
+    <section>
+        <div style="text-align: center; background: #fbe3e9; padding: 20px;">
+            <form id="register-form" method="POST">
+                <p>
+                    <label for="name">Nome</label>
+                    <input type="text" id="name" name="name" required />
+                </p>
+                <p>
+                    <label for="dob">Data de Nascimento</label>
+                    <input type="date" id="dob" name="dob" required />
+                </p>
+                <p>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required />
+                </p>
+                <p>
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" name="password" required />
+                </p>
+                <input type="submit" value="Cadastrar" />
+            </form>
+            <div class="links">
+                <h5>Já tem uma conta?</h5> <a href="/entrar">ENTRAR</a>
+            </div>
+        </div>    
+    <footer class="footer">
+        <p>&copy; 2024 SONOMEU. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

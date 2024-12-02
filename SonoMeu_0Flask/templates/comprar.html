@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SONOMEU - Página de Compra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #9db8d1;
+        }
+        header {
+            background-color: #9db8d1;
+            padding: 20px;
+            color: #fbe3e9;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .form-container {
+            background-color: #fbe3e9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: #9db8d1;
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        input, select {
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #9db8d1;
+            color: #fbe3e9;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #7d9ac1;
+        }
+        .footer {
+            background-color: #9db8d1;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 15px;
+            }
+        }
+        #greeting {
+            margin-top: 20px;
+            text-align: center;
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="form-container">
+            <h2>Finalizar Compra</h2>
+            <form id="purchase-form" action="/confirmacao" method="POST">
+                <!-- Informações Pessoais -->
+                <label for="nome">Nome</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Endereço de E-mail</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="telefone">Número de Telefone</label>
+                <input type="tel" id="telefone" name="telefone" required>
+
+                <label for="cep">CEP</label>
+                <input type="text" id="cep" name="cep" required>
+
+                <label for="nCasa">Número da Casa</label>
+                <input type="text" id="nCasa" name="nCasa" required>
+
+                <!-- Informações do Produto -->
+                <label for="idproduto">ID do Produto</label>
+                <input type="text" id="idproduto" name="idproduto" required>
+
+                <label for="quantidade">Quantidade</label>
+                <input type="number" id="quantidade" name="quantidade" min="1" required>
+
+                <!-- Botão de Enviar -->
+                <button type="submit">Confirmar Compra</button>
+            </form>
+            <div id="greeting"></div>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <p>&copy; 2024 SONOMEU. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
